@@ -1,0 +1,40 @@
+<!doctype html>
+<meta charset="utf-8">
+<html>
+<head>
+<script src="Australia-State-TopoJson-MapChart/d3plus.v1.9.8/js/d3.js"></script>
+<script src="Australia-State-TopoJson-MapChart/d3plus.v1.9.8/js/topojson.js"></script>
+<script src="Australia-State-TopoJson-MapChart/d3plus.v1.9.8/js/d3plus.js"></script>
+</head>
+<body>
+<div id="homework"></div>
+
+<script>
+   
+    //Json of data to chart on australian map
+  var awesomeness = [
+    {"state" : 0, "value" :0, "name": "New South Wales"},
+    {"state" : 1 , "value" : 1 ,"name" : "Victoria"}, 
+	{"state" : 2 , "value" : 2, "name" : "Queensland"} , 
+	{"state" : 3, "value" : 3, "name" : "South Australia"}, 
+	{"state" : 4, "value" :4, "name" : "Western Australia"}, 
+	{"state" : 5, "value": 5,"name" : "Tasmania"}, 
+	{"state" : 6, "value" : 6, "name" : "Northern Territory"}, 
+	{"state" : 7, "value" : 7, "name" : "Australian Capital Territory"}
+  ];
+   // D3Plus
+  var visualization = d3plus.viz()
+    .container("#homework")
+    .data(awesomeness)
+    .type("geo_map")
+    .coords({
+      "value": "au-states-topo.json"
+    })
+    .id("state")
+    .text("name")
+    .color("value")
+    .tooltip("value")
+    .draw()
+</script>
+</body>
+</html>
